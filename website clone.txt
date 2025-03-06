@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Static Website</title>
+</head>
+
+<body>
+    <h1>Welcome to My techgenex  Website</h1>
+
+    <p>“Welcome to TechGenex, where innovation meets inspiration! Let’s embark on a journey to explore the future of technology together.” </p>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
+
+<html>
+    <head> 
+        <title>my static java webpage</title>
+    </head>
+    <body>
+        <h1>Click the button  for Admition form </h1>
+        <button onclick="techgenex()">techgenex</button>
+
+
+      <script> 
+        function techgenex() {
+             window.open('techgenex.html', 'NewWindow', 'width=600,height=400');
+             }
+      </script>
+        
+            
+            
+
+    </body>
+</html>
+
+
+<style>
+    button {
+        background-color: rgb(255, 196, 204);
+        color: rgb(251, 255, 240);
+        padding: 11px 13px;
+        text-align:end;
+        
+        border: rgb(0, 0, 0);
+        border-radius: 15px;
+    }
+    button:hover {
+        background-color: aquamarine;
+    }
+</style>
+
+
+<br><br>
+
+
+
+
+<form action="/submit" method="post">
+    <button type="submit"> submit
+    
+    </button>
+    
+</form>
+<br><br><br><br><br>
+<html>
+    <head> 
+        <title>for contact</title>
+    </head>
+    <body>
+        <h3>Click the button  for contact</h3>
+        <button onclick="window.location.href='https://helpline';">Go to helpline</button>
+        <! -- java script function to handle button click -->
+        <script>
+            function handleClick(){
+                alter("Button clicked!");
+            }
+        </script>
+    </body>
+</html>
+
+
+<style>
+    button {
+        background-color: rgb(200, 196, 255);
+        color: rgb(243, 240, 255);
+        padding: 11px 13px;
+        
+        text-align:end;
+        
+        border: rgb(0, 0, 0);
+        border-radius: 15px;
+        move-left-button{
+            position:absolute;
+            left: 0;
+        }
+       
+    }
+    button:hover {
+        background-color: aquamarine;
+    }
+    h3{
+        move-left-button{
+            position:absolute;
+            left: 0;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+=========================================================
+
+<html>
+<head>
+    <title>New tech Window</title>
+</head>
+<body>
+    <h1>This is a singup page</h1>
+    <form action="processform.html" method="post">
+        <input type="text" name="inputField" placeholder="Enter your name ">
+        <br> <br> <br>
+        <input type="number" age="inputField" placeholder="Enter your age  ">
+        <br> <br> <br>
+        <input type="text" add="inputField" placeholder="Enter your address ">
+        <br> <br> <br>
+        <input type="number" mobilno="inputField" placeholder="Enter your mobile no ">
+        <br> <br> <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+===========================================================
+
+
+<html>
+<head>
+    <title>Form Processed</title>
+</head>
+<body>
+    <h1>Form Submitted!</h1>
+    
+
+
+
+
+
+      
+
+    <br> <br> <br> <br> <br> <br> <br>
+    <button onclick="window.close();">Close Window</button>
+</body>
+</html>

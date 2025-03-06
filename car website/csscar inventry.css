@@ -1,0 +1,72 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* Inventory Section (Flexbox to Align Image & Option Bar) */
+.inventory-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+/* Car Image */
+.car img {
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+/* Brand Selection (Positioned to the Right) */
+.brand-selection {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.brand-selection h2 {
+    margin-bottom: 10px;
+}
+
+.brand-selection label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.brand-selection input {
+    margin-right: 10px;
+}

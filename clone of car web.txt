@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Broto Motiv</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <section>
+        <form action="mailto:youremail@domain.com" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <label for="contact">contact:</label>
+            <input id="contact" name="contact" required>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+### inventory ##
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broto Motiv Inventory</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Our Inventory</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact Us</a>
+        <div>
+            <div>
+                <div>
+                    <p>Choose a car brand:</p>
+                    <label><input type="radio" name="choice" value="bmw" onclick="redirectToPage('bmw')"> BMW</label><br>
+                    <label><input type="radio" name="choice" value="hyundai" onclick="redirectToPage('hyundai')"> Hyundai</label><br>
+                    <label><input type="radio" name="choice" value="audi" onclick="redirectToPage('audi')"> Audi</label>
+                </div>
+                
+                <script>
+                    function redirectToPage(brand) {
+                        let url = "";
+                        switch(brand) {
+                            case 'bmw':
+                                url = "bmw.html";  // Change this to the actual page URL
+                                break;
+                            case 'hyundai':
+                                url = "hyundai.html";
+                                break;
+                            case 'audi':
+                                url = "audi.html";
+                                break;
+                        }
+                        window.location.href = url; // Redirects to the selected page
+                    }
+                </script>
+                  
+            </div>
+        </div>
+    </nav>
+    <section>
+        <!-- List each car here -->
+        <div class="car">
+            <img src="land crouser.jpg" alt="Car 2" width="800">
+            
+            
+            
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+#### first page
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broto Motiv - Second Hand Car Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Broto Motiv</h1>
+        <p>Your trusted destination for quality second-hand cars.</p>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <section>
+        <h2>Featured Cars</h2>
+        <!-- Example car listings -->
+        <div class="car">
+            <img src="civic.jpg" alt="Featured Car 1">
+            <h3>Honda Civic - $10,000</h3>
+            <p>2015 Model, Excellent condition</p>
+        </div>
+    </section>
+</body>
+</html>
