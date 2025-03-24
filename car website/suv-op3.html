@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW 2025 - SUV Option 3</title>
+    <style>
+        body { background-color: #F8F9FA; font-family: Arial, sans-serif; text-align: center; color: #2C3E50; }
+        header { background-color: #2C3E50; color: white; padding: 20px; font-size: 26px; font-weight: bold; }
+
+        /* Image Slider */
+        .image-container { position: relative; margin: 20px auto; width: 600px; }
+        .car-image { width: 100%; border-radius: 10px; box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3); }
+        .arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 30px; color: white; background: rgba(0, 0, 0, 0.5); padding: 10px; cursor: pointer; border-radius: 5px; }
+        .left { left: 10px; }
+        .right { right: 10px; }
+
+        /* Scrollable Information */
+        .info-container { max-height: 0; overflow: hidden; transition: max-height 1s ease-in-out; }
+        .info-btn { background-color: #3498DB; color: white; border: none; padding: 10px 20px; font-size: 18px; margin: 20px; cursor: pointer; border-radius: 5px; }
+        .info-btn:hover { background-color: #2980B9; }
+
+        /* Scratch Card */
+        .scratch-card { background: #FFD700; padding: 15px; font-size: 20px; font-weight: bold; cursor: pointer; border-radius: 10px; display: inline-block; margin-top: 20px; }
+        .hidden-discount { display: none; font-size: 24px; color: #E74C3C; margin-top: 15px; }
+
+        /* Back Button */
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #E74C3C; color: white; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .back-btn:hover { background-color: #C0392B; }
+    </style>
+</head>
+<body>
+    <header>BMW 2025 - SUV Option 3</header>
+
+    <!-- Image Slider -->
+    <div class="image-container">
+        <span class="arrow left" onclick="changeImage(-1)">&#10094;</span>
+        <img id="carImage" class="car-image" src="bmw-suv3-1.jpg" alt="BMW SUV">
+        <span class="arrow right" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <!-- Scrollable Info Section -->
+    <button class="info-btn" onclick="toggleInfo()">Show Car Details</button>
+    <div class="info-container" id="info">
+        <h2>🚘 BMW SUV Option 3 - 2025</h2>
+        <ul>
+            <li>🛠 <b>Engine:</b> 2.0L Twin-Turbo Inline-4</li>
+            <li>⚡ <b>Power Output:</b> 255 HP</li>
+            <li>⏩ <b>Acceleration:</b> 0-100 km/h in 6.2s</li>
+            <li>⛽ <b>Mileage:</b> 15 km/l</li>
+            <li>🎨 <b>Color Options:</b> Silver, Blue, White</li>
+            <li>💰 <b>Price:</b> ₹65,00,000</li>
+        </ul>
+    </div>
+
+    <!-- Scratch Card Offer -->
+    <div class="scratch-card" onclick="revealDiscount()">🎁 Scratch to Reveal Your Discount!</div>
+    <div class="hidden-discount" id="discountMessage"></div>
+
+    <!-- Back Button -->
+    <a href="bmw-2025.html" class="back-btn">Back to BMW Inventory</a>
+
+    <script>
+        // Image Slider
+        let images = ["bmw-suv3-1.jpg", "bmw-suv3-2.jpg", "bmw-suv3-3.jpg"];
+        let currentIndex = 0;
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.getElementById("carImage").src = images[currentIndex];
+        }
+
+        // Scrollable Information
+        function toggleInfo() {
+            let infoSection = document.getElementById("info");
+            if (infoSection.style.maxHeight) {
+                infoSection.style.maxHeight = null;
+            } else {
+                infoSection.style.maxHeight = infoSection.scrollHeight + "px";
+            }
+        }
+
+        // Scratch Card Offer (One-Time Use)
+        function revealDiscount() {
+            let discount = localStorage.getItem("bmwDiscount3");
+            let voucher = localStorage.getItem("bmwVoucher3");
+
+            if (!discount) {
+                discount = Math.floor(Math.random() * 35) + 1; // Generate discount between 1% and 35%
+                voucher = generateVoucher(8); // Generate an 8-character voucher code
+                localStorage.setItem("bmwDiscount3", discount);
+                localStorage.setItem("bmwVoucher3", voucher);
+            }
+
+            let message = `🎉 Congrats! You got <b>${discount}%</b> off! 🚗💨<br>Your voucher code: <b>${voucher}</b>`;
+            document.getElementById("discountMessage").innerHTML = message;
+            document.getElementById("discountMessage").style.display = "block";
+
+            // Special Effect - Popup Animation
+            alert(`🎉 Congrats! You got ${discount}% off!\nYour voucher code: ${voucher}`);
+        }
+
+        // Generate Random Voucher Code
+        function generateVoucher(length) {
+            let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let voucher = "";
+            for (let i = 0; i < length; i++) {
+                voucher += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return voucher;
+        }
+    </script>
+</body>
+</html>

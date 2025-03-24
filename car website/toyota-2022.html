@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toyota Inventory - 2022</title>
+    <style>
+        body { background-color: #EAEDED; font-family: Arial, sans-serif; text-align: center; }
+        header { background-color: #2C3E50; color: white; padding: 20px; font-size: 26px; font-weight: bold; }
+        .selection-container { margin-top: 20px; }
+        select, button { padding: 10px; font-size: 16px; border-radius: 5px; margin: 10px; }
+        button { background-color: #3498DB; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #2980B9; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #E74C3C; color: white; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .back-btn:hover { background-color: #C0392B; }
+    </style>
+</head>
+<body>
+    <header>Toyota Inventory - 2022</header>
+
+    <div class="selection-container">
+        <h3>Select SUV Model</h3>
+        <select id="suv">
+            <option value="">-- Select SUV --</option>
+            <option value="toy122-SUV">Toyota SUV 121</option>
+            <option value="toy222-SUV">Toyota SUV 221</option>
+            <option value="toy322-SUV">Toyota SUV 321</option>
+        </select>
+        <button onclick="navigateTo('suv')">Go</button>
+    </div>
+
+    <div class="selection-container">
+        <h3>Select Sedan Model</h3>
+        <select id="sedan">
+            <option value="">-- Select Sedan --</option>
+            <option value="toy122-sedan">Toyota Sedan 121</option>
+            <option value="toy222-sedan">Toyota Sedan 221</option>
+          
+        </select>
+        <button onclick="navigateTo('sedan')">Go</button>
+    </div>
+
+    <div class="selection-container">
+        <h3>Select Mini SUV Model</h3>
+        <select id="mini-suv">
+            <option value="">-- Select Mini SUV --</option>
+            <option value="toy122-MIN-SUV">Toyota Mini SUV 1</option>
+            <option value="toy222-MIN-SUV">Toyota Mini SUV 2</option>
+        </select>
+        <button onclick="navigateTo('mini-suv')">Go</button>
+    </div>
+
+    <a href="toyota.html" class="back-btn">Back to Selection</a>
+
+    <script>
+        function navigateTo(category) {
+            let selectedValue = document.getElementById(category).value;
+
+            if (selectedValue) {
+                let filename = `${selectedValue}.html`; // Assuming each option has a corresponding file
+                window.location.href = filename;
+            } else {
+                alert("Please select an option.");
+            }
+        }
+    </script>
+</body>
+</html>

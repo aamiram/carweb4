@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honda Inventory - 2021</title>
+    <style>
+        /* Background Animation */
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(45deg, #ffffff, #3498DB); }
+            50% { background: linear-gradient(45deg, #3498DB, #ffffff); }
+            100% { background: linear-gradient(45deg, #ffffff, #3498DB); }
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            animation: backgroundAnimation 6s infinite alternate ease-in-out;
+            background-size: 200% 200%;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header { 
+            background-color: #2C3E50; 
+            color: white; 
+            padding: 20px; 
+            font-size: 26px; 
+            font-weight: bold;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .selection-container { 
+            margin-top: 80px; 
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        select, button { 
+            padding: 10px; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            margin: 10px; 
+            width: 100%;
+            border: none;
+        }
+
+        button { 
+            background-color: #3498DB; 
+            color: white; 
+            cursor: pointer; 
+            transition: transform 0.2s ease-in-out;
+        }
+
+        button:hover { background-color: #2980B9; }
+
+        button:active {
+            transform: scale(0.9);
+            background-color: #1F6691;
+        }
+
+        .back-btn { 
+            display: inline-block; 
+            margin-top: 20px; 
+            padding: 10px 20px; 
+            background-color: #E74C3C; 
+            color: white; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-btn:hover { 
+            background-color: #C0392B; 
+            transform: scale(1.05);
+        }
+
+        /* Button Click Effect */
+        @keyframes buttonClick {
+            0% { transform: scale(1); background-color: #3498DB; }
+            50% { transform: scale(1.1); background-color: #1F6691; }
+            100% { transform: scale(1); background-color: #3498DB; }
+        }
+
+        .clicked {
+            animation: buttonClick 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <header>Honda Inventory - 2021</header>
+
+    <div class="selection-container">
+        <h3>Select SUV Model</h3>
+        <select id="suv">
+            <option value="">-- Select SUV --</option>
+            <option value="suv-ho120">SUV Option 1</option>
+            <option value="suv-ho220">SUV Option 2</option>
+        </select>
+        <button onclick="navigateTo('suv', this)">Go</button>
+    </div>
+
+    <div class="selection-container">
+       
+        
+        <h3>Select Mini SUV Model</h3>
+        <select id="mini-suv">
+            <option value="">-- Select Mini SUV --</option>
+            <option value="mini-suv-ho120">Mini SUV Option 1</option>
+        </select>
+        <button onclick="navigateTo('mini-suv', this)">Go</button>
+    </div>
+
+    <a href="honda.html" class="back-btn">Back to Selection</a>
+
+    <script>
+        function navigateTo(category, button) {
+            let selectedValue = document.getElementById(category).value;
+            if (selectedValue) {
+                let filename = `${selectedValue}.html`; 
+                button.classList.add("clicked");
+                setTimeout(() => {
+                    window.location.href = filename;
+                }, 300);
+            } else {
+                alert("Please select an option.");
+            }
+        }
+    </script>
+</body>
+</html>

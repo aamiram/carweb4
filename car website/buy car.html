@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broto Motiv Inventory</title>
+    <style>
+        body {
+            background-color: #EAEDED;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2C3E50;
+            color: white;
+            padding: 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .brand-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .brand-btn {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 150px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            color: black;
+        }
+
+        .brand-btn img {
+            width: 100px;
+            height: auto;
+        }
+
+        .brand-btn:hover {
+            background-color: #D5DBDB;
+            transform: scale(1.05);
+        }
+
+        .search-bar {
+            margin: 20px;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .special-offers {
+            background-color: #FFD700;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #E74C3C;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-btn:hover {
+            background-color: #C0392B;
+        }
+    </style>
+</head>
+<body>
+    <header>Broto Motiv Inventory</header>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Search for a car brand...">
+    </div>
+
+    <div class="brand-container">
+        <a href="bmw.html" class="brand-btn"><img src="BMW-logo.jpg" alt="BMW"><br>BMW</a>
+        <a href="hyundai.html" class="brand-btn"><img src="hyundai-logo.jpg" alt="Hyundai"><br>Hyundai</a>
+        <a href="toyota.html" class="brand-btn"><img src="toyota-logo.jpg" alt="Toyota"><br>Toyota</a>
+        <a href="honda.html" class="brand-btn"><img src="honda-logo.jpg" alt="Honda"><br>Honda</a>
+        
+    </div>
+
+    <div class="special-offers">
+        Special Offer: Get 5% Off on Your First Purchase!
+    </div>
+
+    <a href="home.html" class="back-btn">Back to Home</a>
+
+</body>
+</html>

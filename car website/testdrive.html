@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Drive Payment - Broto Motiv</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to bottom right, #1a73e8, #e3f2fd);
+            color: #333;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.5s ease-in-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        input, button {
+            margin: 10px;
+            padding: 12px;
+            width: 90%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #135abc;
+            transform: scale(1.1);
+        }
+        img {
+            width: 200px;
+            margin-top: 10px;
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff3b3b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="home.html" class="home-button">Home</a>
+    <div class="container">
+        <h2>Broto Motiv - Test Drive Payment</h2>
+        <label for="amount">Enter Test Drive Fee (₹):</label>
+        <input type="number" id="amount" step="0.01" placeholder="Enter amount">
+        
+        <div id="voucherSection">
+            <label for="voucher">Enter Voucher Code:</label>
+            <input type="text" id="voucher" placeholder="Scan or Enter Code">
+            <button onclick="applyDiscount()">Apply Discount</button>
+        </div>
+
+        <div id="discountSection" style="display: none;">
+            <label for="verifyDiscount">Enter Discount % for Verification:</label>
+            <input type="number" id="verifyDiscount" placeholder="Enter Discount %">
+            <button onclick="verifyDiscount()">Verify Discount</button>
+        </div>
+        
+        <h3 id="result"></h3>
+
+        <div id="paymentSection" style="display: none;">
+            <h3>Scan the QR Code to Pay:</h3>
+            <img src="scanner_placeholder.png" alt="QR Code Scanner Placeholder">
+            
+            <label>
+                <input type="checkbox" id="scanConfirmed"> I have scanned the QR code and completed the payment
+            </label>
+            
+            <button onclick="confirmPayment()">Payment Completed</button>
+        </div>
+    </div>
+
+    <script>
+        let discount = 0;
+        let finalAmount = 0;
+
+        function applyDiscount() {
+            let voucher = document.getElementById("voucher").value.trim();
+            if (voucher === "") {
+                alert("Please enter a valid voucher code.");
+                return;
+            }
+            let amount = parseFloat(document.getElementById("amount").value);
+            if (!amount || amount < 100) {
+                alert("Minimum amount should be ₹100.");
+                return;
+            }
+            discount = Math.floor(Math.random() * 35) + 1; // Random discount between 1% and 35%
+            alert(`Your discount is: ${discount}%`);
+            document.getElementById("discountSection").style.display = "block";
+        }
+
+        function verifyDiscount() {
+            let verifyDiscount = parseInt(document.getElementById("verifyDiscount").value);
+            if (verifyDiscount !== discount) {
+                alert("Discount verification failed! Please enter the correct discount percentage.");
+                return;
+            }
+            let amount = parseFloat(document.getElementById("amount").value);
+            let discountAmount = (discount / 100) * amount;
+            finalAmount = amount - discountAmount;
+            alert(`Congratulations! ${discount}% discount applied.\nFinal Payable: ₹${finalAmount.toFixed(2)}`);
+            document.getElementById("result").innerHTML = `Discount Applied: ${discount}%<br>
+                Original: ₹${amount.toFixed(2)}<br>
+                Discount: -₹${discountAmount.toFixed(2)}<br>
+                Final Payable: ₹${finalAmount.toFixed(2)}`;
+            document.getElementById("paymentSection").style.display = "block";
+        }
+
+        function confirmPayment() {
+            let scanConfirmed = document.getElementById("scanConfirmed").checked;
+            if (!scanConfirmed) {
+                alert("Please confirm that you have scanned the QR code and completed the payment.");
+                return;
+            }
+            let now = new Date();
+            let year = 2025;
+            let month = 4; // Set to April
+            let day = now.getDate();
+            let hours = Math.max(11, Math.min(20, now.getHours())); // Ensure 11 AM to 8 PM
+            let minutes = now.getMinutes();
+            let formattedDate = `${day}/${month}/${year} ${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+            alert(`Payment successful! Thank you for booking your test drive.\nDate: ${formattedDate}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW Inventory - 2024</title>
+    <style>
+        body { background-color: #EAEDED; font-family: Arial, sans-serif; text-align: center; }
+        header { background-color: #2C3E50; color: white; padding: 20px; font-size: 26px; font-weight: bold; }
+        .selection-container { margin-top: 20px; }
+        select, button { padding: 10px; font-size: 16px; border-radius: 5px; margin: 10px; }
+        button { background-color: #3498DB; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #2980B9; }
+        .back-btn { display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #E74C3C; color: white; border-radius: 5px; text-decoration: none; font-size: 16px; }
+        .back-btn:hover { background-color: #C0392B; }
+    </style>
+</head>
+<body>
+    <header>BMW Inventory - 2024</header>
+
+    <div class="selection-container">
+        <h3>Select SUV Model</h3>
+        <select id="suv">
+            <option value="">-- Select SUV --</option>
+            <option value="bmw-suv-1-24">SUV Option 1</option>
+            <option value="bmw-suv-2-24">SUV Option 2</option>
+          
+        </select>
+        <button onclick="navigateTo('suv')">Go</button>
+    </div>
+
+    <div class="selection-container">
+        <h3>Select Sedan Model</h3>
+        <select id="sedan">
+            <option value="">-- Select Sedan --</option>
+            <option value="bmw-sedan1-24">Sedan Option 1</option>
+            <option value="bmw-sedan2-24">Sedan Option 2</option>
+        </select>
+        <button onclick="navigateTo('sedan')">Go</button>
+    </div>
+
+    <div class="selection-container">
+        <h3>Select Mini SUV Model</h3>
+        <select id="mini-suv">
+            <option value="">-- Select Mini SUV --</option>
+            <option value="bmw-minisuv-1-24">Mini SUV Option 1</option>
+            
+        </select>
+        <button onclick="navigateTo('mini-suv')">Go</button>
+    </div>
+
+    <a href="bmw.html" class="back-btn">Back to Selection</a>
+
+    <script>
+        function navigateTo(category) {
+            let selectedValue = document.getElementById(category).value;
+
+            if (selectedValue) {
+                let filename = `${selectedValue}.html`; // Assuming each option has a corresponding file
+                window.location.href = filename;
+            } else {
+                alert("Please select an option.");
+            }
+        }
+    </script>
+</body>
+</html>
