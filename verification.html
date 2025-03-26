@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Verification - Broto Motiv</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #1a73e8, #e3f2fd);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #1a73e8;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #135abc;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .popup h3 {
+            color: green;
+            font-size: 24px;
+        }
+        .popup button {
+            background: green;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            let aadhaar = document.getElementById("aadhaar").value.trim();
+            let pan = document.getElementById("pan").value.trim();
+            let account = document.getElementById("account").value.trim();
+            let income = document.getElementById("income").value.trim();
+            let employment = document.getElementById("employment").value;
+            let addressProof = document.getElementById("address-proof").value;
+            let incomeProof = document.getElementById("income-proof").value;
+
+            if (aadhaar === "" || pan === "" || account === "" || income === "" || employment === "" || addressProof === "" || incomeProof === "") {
+                alert("🚨 Please fill out ALL fields before submitting! 🚨");
+                return false;
+            }
+
+            // Show pop-up and reveal next button
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function goToNextPage() {
+            window.location.href = "loan-approved.html";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Loan Verification</h2>
+        <form onsubmit="validateForm(event)">
+            <label for="aadhaar">Aadhaar Number:</label>
+            <input type="text" id="aadhaar" name="aadhaar" placeholder="Enter your Aadhaar number" required>
+            
+            <label for="pan">PAN Number:</label>
+            <input type="text" id="pan" name="pan" placeholder="Enter your PAN number" required>
+            
+            <label for="account">Bank Account Number:</label>
+            <input type="text" id="account" name="account" placeholder="Enter your bank account number" required>
+            
+            <label for="income">Monthly Income:</label>
+            <input type="number" id="income" name="income" placeholder="Enter your monthly income" required>
+            
+            <label for="employment">Employment Type:</label>
+            <select id="employment" name="employment">
+                <option value="">Select</option>
+                <option value="salaried">Salaried</option>
+                <option value="self-employed">Self-Employed</option>
+                <option value="business">Business Owner</option>
+            </select>
+            
+            <label for="address-proof">Address Proof (Upload):</label>
+            <input type="file" id="address-proof" name="address-proof" required>
+            
+            <label for="income-proof">Income Proof (Upload):</label>
+            <input type="file" id="income-proof" name="income-proof" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Pop-up Message -->
+    <div id="popup" class="popup">
+        <h3>✅ Congratulations! Your loan application has been submitted.</h3>
+        <p>We are reviewing your application. Please wait for a few days, and we will contact you soon!</p>
+        <p>🔥 Stay excited! Your dream car is coming closer. 🚗💨</p>
+        <button class="next-button" onclick="location.href='Loan Approved.html'">Next</button>
+    </div>
+</body>
+</html>

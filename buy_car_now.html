@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Broto Motiv</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #1a73e8, #e3f2fd);
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #1a73e8;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        button:hover {
+            background-color: #135abc;
+            transform: scale(1.05);
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: fadeInPop 0.5s ease-in-out;
+        }
+        @keyframes fadeInPop {
+            from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        }
+        @keyframes sparkle {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+        .sparkles {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            animation: sparkle 1s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Payment Processing</h2>
+        <form>
+            <label for="payment-method">Select Payment Method:</label>
+            <select id="payment-method">
+                <option value="upi">UPI</option>
+                <option value="card">Credit/Debit Card</option>
+                <option value="netbanking">Net Banking</option>
+            </select>
+            
+            <label for="amount">Enter Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            
+            <label for="password">Enter Password:</label>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            
+            <button type="button" onclick="startPayment()">Proceed to Pay</button>
+        </form>
+    </div>
+    
+    <div class="popup" id="processingPopup">
+        <h3>Processing Payment...</h3>
+        <div class="sparkles" style="top: 10px; left: 20px;"></div>
+        <div class="sparkles" style="top: 50px; left: 70px;"></div>
+        <div class="sparkles" style="top: 80px; left: 40px;"></div>
+    </div>
+    
+    <div class="popup" id="successPopup">
+        <h3>✅ Congratulations! Your payment was successful.</h3>
+        <p>Dear <span id="customer-name"></span>, your transaction is complete! 🚀</p>
+        <p>🔥 Get ready to ride in style! Your car is now reserved. Our team will contact you soon. 🚗💨</p>
+        <p>Thank you for choosing Broto Motiv! 🎊</p>
+    </div>
+    
+    <script>
+        function startPayment() {
+            document.getElementById('processingPopup').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('processingPopup').style.display = 'none';
+                document.getElementById('successPopup').style.display = 'block';
+                setTimeout(() => { window.location.href = 'home.html'; }, 5000);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
